@@ -6,6 +6,19 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
+
+  // Register the service worker
+ 
+  if (!navigator.serviceWorker) return;
+  if(navigator.serviceWorker) {
+    window.addEventListener('load', () =>{
+       navigator.serviceWorker
+        .register('/sw.js')
+        .then(req => console.log('Service Worker: Registered'))
+        .catch(err => console.log(`Service Worker: Error ${err}`))
+    })
+  }
+  //navigator.serviceWorker.register('../sw.js');
 });
 
 /**
@@ -87,8 +100,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.imageAbout;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;

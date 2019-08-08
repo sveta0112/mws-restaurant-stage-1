@@ -335,14 +335,14 @@ nav h1 a {
   align-self: center;
   width: 50%;
   text-align: right;
-  color: #ccc
+  color: #736c6c;
 }
 
 #reviews-list li>p:nth-child(3) {
   width: 30%;
   color: white;
   text-align: center;
-  background-color: #f18200;
+  background-color: #db6a00;
 }
 
 #restaurant-hours td {

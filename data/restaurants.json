@@ -1,6 +1,7 @@
 {
   "restaurants": [{
     "id": 1,
+    "imageAbout": "Main hall of the restaurant",
     "name": "Mission Chinese Food",
     "neighborhood": "Manhattan",
     "photograph": "1.jpg",
@@ -40,6 +41,7 @@
     ]
   }, {
     "id": 2,
+    "imageAbout": "Cheesy pizza",
     "name": "Emily",
     "neighborhood": "Brooklyn",
     "photograph": "2.jpg",
@@ -79,6 +81,7 @@
     ]
   }, {
     "id": 3,
+    "imageAbout": "Barbeque tables, self-cooking main area",
     "name": "Kang Ho Dong Baekjeong",
     "neighborhood": "Manhattan",
     "photograph": "3.jpg",
@@ -118,6 +121,7 @@
     ]
   }, {
     "id": 4,
+    "imageAbout": "Outside of the restaurant",
     "name": "Katz's Delicatessen",
     "neighborhood": "Manhattan",
     "photograph": "4.jpg",
@@ -157,6 +161,7 @@
     ]
   }, {
     "id": 5,
+    "imageAbout": "Main area of the restaurant",
     "name": "Roberta's Pizza",
     "neighborhood": "Brooklyn",
     "photograph": "5.jpg",
@@ -196,6 +201,7 @@
     ]
   }, {
     "id": 6,
+    "imageAbout": "Spacious area",
     "name": "Hometown BBQ",
     "neighborhood": "Brooklyn",
     "photograph": "6.jpg",
@@ -235,6 +241,7 @@
     ]
   }, {
     "id": 7,
+    "imageAbout": "Outside of the restaurant",
     "name": "Superiority Burger",
     "neighborhood": "Manhattan",
     "photograph": "7.jpg",
@@ -274,6 +281,7 @@
     ]
   }, {
     "id": 8,
+    "imageAbout": "Outside of the restaurant",
     "name": "The Dutch",
     "neighborhood": "Manhattan",
     "photograph": "8.jpg",
@@ -313,6 +321,7 @@
     ]
   }, {
     "id": 9,
+    "imageAbout": "Inside of the restaurant",
     "name": "Mu Ramen",
     "neighborhood": "Queens",
     "photograph": "9.jpg",
@@ -352,6 +361,7 @@
     ]
   }, {
     "id": 10,
+    "imageAbout": "Spacious stylish area inside of the restaurant",
     "name": "Casa Enrique",
     "neighborhood": "Queens",
     "photograph": "10.jpg",

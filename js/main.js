@@ -177,19 +177,27 @@ createRestaurantHTML = (restaurant) => {
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   //a11y--> added alt text to <img>
   image.alt = restaurant.imageAbout;
+  //a11y--> added tabindex
+  image.tabIndex = 0;
   li.append(image);
 
   //a11y--> changed from <h1> to <h2>
   const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
+  //a11y--> added tabindex
+  name.tabIndex = 0;
   li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
+  //a11y--> added tabindex
+  neighborhood.tabIndex = 0;
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  //a11y--> added tabindex
+  address.tabIndex = 0;
   li.append(address);
   
   //a11y--> changed from <a> to <button>

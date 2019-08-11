@@ -14,22 +14,23 @@
         <nav role="navigation">
           <h1><a href="/">Restaurant Reviews</a></h1>
         </nav>
-        <ul id="breadcrumb" role="list">
-          <li role="listitem"><a href="/">Home</a></li>
+        <ul id="breadcrumb" aria-label="breadcrumb">
+          <li><a href="/" role="listitem">Home</a></li>
         </ul>
       </header>
     
       <main id="maincontent" role="main">
-        <section id="map-container" aria-label="MapBox-map">
+        <section id="map-container" role="application" aria-label="MapBox-map">
           <div id="map" aria-hidden="true"></div>
         </section>
       
-        <section id="restaurant-container" aria-label="restaurant-information">
+        <section id="restaurant-container" aria-labelledby="restaurant-name">
           <h2 id="restaurant-name"></h2>
           <figure>
             <img id="restaurant-img">
             <figcaption id="restaurant-cuisine"></figcaption>
           </figure>
+          
           <p id="restaurant-address"></p>
           <table id="restaurant-hours"></table>
         </section>

@@ -102,6 +102,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  //a11y--> added alt to <img>
   image.alt = restaurant.imageAbout;
 
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -140,6 +141,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
+  //a11y--> added tabindex
+  container.setAttribute('tabindex', '0');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
@@ -162,6 +165,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  //a11y--> set attribute role to <li>
   li.setAttribute('role', 'listitem');
   const name = document.createElement('p');
   name.innerHTML = review.name;

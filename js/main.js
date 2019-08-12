@@ -1,29 +1,27 @@
 let restaurants,
-  neighborhoods,
-  cuisines
-var newMap
-var markers = []
+    neighborhoods,
+    cuisines;
+var newMap;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-  initMap(); // added 
+  initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
 
   // Register the service worker
- 
   if (!navigator.serviceWorker) return;
   if(navigator.serviceWorker) {
-    window.addEventListener('load', () =>{
+    window.addEventListener('load', () => {
        navigator.serviceWorker
         .register('/sw.js')
         .then(req => console.log('Service Worker: Registered'))
         .catch(err => console.log(`Service Worker: Error ${err}`))
-    })
+    });
   }
-  
 });
 
 /**
@@ -38,7 +36,7 @@ fetchNeighborhoods = () => {
       fillNeighborhoodsHTML();
     }
   });
-}
+};
 
 /**
  * Set neighborhoods HTML.
@@ -51,7 +49,7 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
     option.value = neighborhood;
     select.append(option);
   });
-}
+};
 
 /**
  * Fetch all cuisines and set their HTML.
@@ -65,7 +63,7 @@ fetchCuisines = () => {
       fillCuisinesHTML();
     }
   });
-}
+};
 
 /**
  * Set cuisines HTML.
@@ -79,7 +77,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     option.value = cuisine;
     select.append(option);
   });
-}
+};
 
 /**
  * Initialize leaflet map, called from HTML.
@@ -100,7 +98,7 @@ initMap = () => {
   }).addTo(newMap);
 
   updateRestaurants();
-}
+};
 /* window.initMap = () => {
   let loc = {
     lat: 40.722216,
@@ -134,8 +132,8 @@ updateRestaurants = () => {
       resetRestaurants(restaurants);
       fillRestaurantsHTML();
     }
-  })
-}
+  });
+};
 
 /**
  * Clear current restaurants, their HTML and remove their map markers.
@@ -152,7 +150,7 @@ resetRestaurants = (restaurants) => {
   }
   self.markers = [];
   self.restaurants = restaurants;
-}
+};
 
 /**
  * Create all restaurants HTML and add them to the webpage.
@@ -163,7 +161,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
     ul.append(createRestaurantHTML(restaurant));
   });
   addMarkersToMap();
-}
+};
 
 /**
  * Create restaurant HTML.
@@ -174,7 +172,14 @@ createRestaurantHTML = (restaurant) => {
   li.setAttribute('role', 'listitem');
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  //responsive images
+  let imgUrl = DBHelper.imageUrlForRestaurant(restaurant);
+  imgUrl = imgUrl.substring(0, imgUrl.length-4);
+  const img1x = imgUrl + "_320.jpg";
+  const img2x = imgUrl + "_600.jpeg";
+  image.src = img1x;
+  image.srcset = `${img1x} 320w, ${img2x} 600w`;
+  image.sizes = `(max-width: 600px) 320px, (max-width: 960px) 600px`;
   //a11y--> added alt text to <img>
   image.alt = restaurant.imageAbout;
   //a11y--> added tabindex
@@ -199,7 +204,7 @@ createRestaurantHTML = (restaurant) => {
   //a11y--> added tabindex
   address.tabIndex = 0;
   li.append(address);
-  
+
   //a11y--> changed from <a> to <button>
   const more = document.createElement('button');
   more.innerHTML = 'View Details';
@@ -207,7 +212,7 @@ createRestaurantHTML = (restaurant) => {
     const url = DBHelper.urlForRestaurant(restaurant);
     window.location = url;
   }
-  //more.href = DBHelper.urlForRestaurant(restaurant);
+
   li.append(more)
 
   return li
@@ -227,7 +232,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 
-} 
+}
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map

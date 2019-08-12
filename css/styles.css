@@ -284,7 +284,7 @@ nav h1 a {
 #restaurant-cuisine {
   background-color: #333;
   color: #ddd;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 10px;
   margin: 0 0 20px;
@@ -377,11 +377,11 @@ nav h1 a {
   .filter-options h2 {
     margin: 20px;
   }
-  
+
   select#cuisines-select {
     margin-bottom: 30px;
   }
-  
+
   .inside {
     display: flex;
     flex-direction: row;
@@ -397,12 +397,10 @@ nav h1 a {
     display: flex;
     flex-direction: column;
   }
-  
+
   .inside header #breadcrumb {
     order: 1;
     width: 100vw;
-    padding-right: 0;
-    padding-left: 0;
     text-align: center;
   }
 
@@ -423,7 +421,9 @@ nav h1 a {
     text-align: center;
   }
 
-  .inside #restaurant-container,#restaurant-img,#restaurant-cuisine {
+  .inside #restaurant-container,
+          #restaurant-img,
+          #restaurant-cuisine {
     margin: auto;
   }
 
@@ -457,13 +457,26 @@ nav h1 a {
     font-size: 1rem;
   }
 
-  #reviews-container h2 {
+  .inside #restaurant-name {
+    font-size: 1.5rem;
+    margin: 200px 0 30px;
+  }
+
+  .inside #restaurant-address {
+    font-size: 1.4rem;
+  }
+
+  .inside #restaurant-cuisine {
+    font-size: 0.7rem;
+  }
+
+  .inside #reviews-container h2 {
     font-size: 2rem;
   }
-  
-  #reviews-list li p {
+
+  .inside #reviews-list li p {
     font-size: 1rem;
   }
-  
+
 }
 
